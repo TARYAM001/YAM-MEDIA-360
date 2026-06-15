@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy:         #0D1B3E;
+  --navy-light:   #1A2F5E;
+  --navy-mid:     #243A72;
+  --blue:         #4A90D9;
+  --blue-light:   #7EB8F7;
+  --silver:       #C8D3E8;
+  --silver-light: #E8EDF5;
+  --silver-pale:  #F4F7FC;
+  --white:        #FFFFFF;
+  --text-dark:    #0D1B3E;
+  --text-body:    #2D3A55;
+  --text-muted:   #5A6480;
+  --text-light:   #8A97B0;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-body);
+  background: #F0F4FA;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(74,144,217,0.18); color: var(--navy); }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--silver-light); }
+::-webkit-scrollbar-thumb { background: var(--silver); border-radius: 4px; }
+
+@layer components {
+  /* Cards */
+  .ym-card {
+    background: white;
+    border: 1px solid var(--silver-light);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color .25s, box-shadow .25s, transform .25s;
+  }
+  .ym-card:hover {
+    border-color: var(--blue);
+    box-shadow: 0 6px 24px rgba(74,144,217,.13);
+    transform: translateY(-3px);
+  }
+
+  /* Featured article */
+  .ym-featured {
+    background: white;
+    border: 1.5px solid var(--silver-light);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: border-color .25s, box-shadow .25s;
+  }
+  .ym-featured:hover {
+    border-color: var(--blue);
+    box-shadow: 0 8px 32px rgba(74,144,217,.14);
+  }
+
+  /* Badges */
+  .ym-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: .02em;
+  }
+
+  /* Filter pills */
+  .ym-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 500;
+    background: white;
+    color: var(--text-muted);
+    border: 1px solid var(--silver);
+    transition: all .2s;
+    white-space: nowrap;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .ym-pill:hover { border-color: var(--blue); color: var(--navy); }
+  .ym-pill.active {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+    box-shadow: 0 2px 8px rgba(13,27,62,.2);
+  }
+
+  /* Buttons */
+  .ym-btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 24px; background: var(--navy); color: white;
+    border-radius: 99px; font-weight: 600; font-size: 14px;
+    font-family: 'Inter', sans-serif; transition: all .2s;
+    border: none; cursor: pointer;
+  }
+  .ym-btn-primary:hover { background: var(--navy-light); box-shadow: 0 4px 14px rgba(13,27,62,.28); }
+
+  .ym-btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 22px; background: transparent; color: var(--navy);
+    border: 1.5px solid var(--navy); border-radius: 99px; font-weight: 600;
+    font-size: 14px; font-family: 'Inter', sans-serif; transition: all .2s; cursor: pointer;
+  }
+  .ym-btn-ghost:hover { background: var(--navy); color: white; }
+
+  /* Search input */
+  .ym-search {
+    width: 100%; background: var(--silver-pale); border: 1px solid var(--silver);
+    border-radius: 99px; padding: 9px 16px 9px 40px;
+    font-size: 14px; font-family: 'Inter', sans-serif; color: var(--text-dark);
+    transition: all .2s; outline: none;
+  }
+  .ym-search::placeholder { color: var(--text-light); }
+  .ym-search:focus { border-color: var(--blue); background: white; box-shadow: 0 0 0 3px rgba(74,144,217,.1); }
+
+  /* Skeleton loader */
+  .skeleton {
+    background: linear-gradient(90deg, var(--silver-light) 25%, var(--silver-pale) 50%, var(--silver-light) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Montserrat', sans-serif !important; }
+  .animate-fade-up { opacity: 0; animation: fadeUp .45s ease forwards; }
+}
+
+@keyframes fadeUp  { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+@keyframes shimmer { 0% { background-position:200% 0; } 100% { background-position:-200% 0; } }
