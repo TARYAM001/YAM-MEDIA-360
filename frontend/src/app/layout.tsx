@@ -13,7 +13,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'YAM Media — Le média intelligent au service d\'une nouvelle ère',
-  description: '1er média d\'information burkinabè encadré par l'IA. Actualités Burkina Faso en temps réel, synthétisées par Google Gemini AI.',
+  description: '1er média d\'information burkinabè encadré par l\'IA. Actualités Burkina Faso en temps réel, synthétisées par Google Gemini AI.',
   keywords: ['Burkina Faso','actualités','YAM Media','Afrique','IA','information'],
   openGraph: {
     title: 'YAM Media',
